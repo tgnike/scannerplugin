@@ -4,9 +4,9 @@ import Photos
 
 public class SwiftReceiveSharingIntentPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
     
-    static let kMessagesChannel = "receive_sharing_intent/messages";
-    static let kEventsChannelMedia = "receive_sharing_intent/events-media";
-    static let kEventsChannelLink = "receive_sharing_intent/events-text";
+    static let kMessagesChannel = "receive_scanner_intent/messages";
+    static let kEventsChannelMedia = "receive_scanner_intent/events-media";
+    static let kEventsChannelLink = "receive_scanner_intent/events-text";
     
     private var initialMedia: [SharedMediaFile]? = nil
     private var latestMedia: [SharedMediaFile]? = nil

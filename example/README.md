@@ -1,4 +1,4 @@
-# receive_sharing_intent_example
+# receive_scanner_intent_example
 
 A flutter plugin that enables flutter apps to receive sharing photos, videos, text and urls from other apps.
 
@@ -474,7 +474,7 @@ extension Array {
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:receive_sharing_intent/receive_sharing_intent.dart';
+import 'package:receive_scanner_intent/receive_scanner_intent.dart';
 
 void main() => runApp(MyApp());
 

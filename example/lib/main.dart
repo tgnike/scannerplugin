@@ -11,8 +11,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  StreamSubscription _intentDataStreamSubscription;
-  String _sharedText;
+  late StreamSubscription _intentDataStreamSubscription;
+  late String _sharedText;
 
   @override
   void initState() {
@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
 
     // For sharing text coming from outside the app while the app is in the memory
     _intentDataStreamSubscription =
-        ReceiveScannerIntent.getTextStream().listen((String value) {
+        ReceiveScannerIntent.getTextStream()!.listen((String value) {
       setState(() {
         _sharedText = value;
         print("Shared: $_sharedText");

@@ -7,7 +7,7 @@ class ReceiveScannerIntent {
       const MethodChannel('receive_scanner_intent/messages');
 
   //static const EventChannel _eChannelMedia =
-  //    const EventChannel("receive_sharing_intent/events-media");
+  //    const EventChannel("receive_scanner_intent/events-media");
   static const EventChannel _eChannelLink =
       const EventChannel("receive_scanner_intent/events-text");
 
