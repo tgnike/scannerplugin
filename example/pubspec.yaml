@@ -2,7 +2,7 @@ name: scanner_intent_example
 description: Demonstrates how to use the scanner_intent plugin.
 publish_to: 'none'
 
-version: 1.0.2+1
+version: 2.0.0+2
 
 environment:
   sdk: ">=3.5.4 <4.0.0"
