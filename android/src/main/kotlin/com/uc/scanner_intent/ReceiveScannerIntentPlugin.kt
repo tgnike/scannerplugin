@@ -16,8 +16,6 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry
-import io.flutter.plugin.common.PluginRegistry.Registrar
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.FlutterPlugin.FlutterPluginBinding
 import org.json.JSONArray
@@ -91,13 +89,6 @@ class ReceiveScannerIntentPlugin() :
         when (arguments) {
             "text" -> eventSinkText = null
         }
-    }
-    companion object { 
-    @JvmStatic
-    fun registerWith(registrar:PluginRegistry.Registrar) {
-        val instance = ReceiveScannerIntentPlugin()
-        instance.onAttachedToEngine(registrar.context(), registrar.messenger())
-      }
     }
     override fun onMethodCall(call: MethodCall, result: Result) {
         when {
