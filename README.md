@@ -41,7 +41,7 @@ class _ViewState extends State<View> {
 
 # Android settings
 
-Intent action: `com.dwexample.ACTION | com.unicosm.ACTION | com.android.scanner.broadcast`
+Intent action: `com.dwexample.ACTION | com.unicosm.ACTION | com.android.scanner.broadcast | android.intent.ACTION_DECODE_DATA`
 Intent category: `android.intent.category.DEFAULT`
-Data field: `data scandata`
+Data field: `data | scandata | com.symbol.datawedge.data_string | barcode_string`
 Intent delivery: `Broadcast intent`

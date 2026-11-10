@@ -75,10 +75,19 @@ class ReceiveScannerIntentPlugin() :
       filter.addAction("com.dwexample.ACTION");
       filter.addAction("com.unicosm.ACTION");
       filter.addAction("com.android.scanner.broadcast");
+      // Urovo и др.: action android.intent.ACTION_DECODE_DATA, extra barcode_string.
+      filter.addAction("android.intent.ACTION_DECODE_DATA");
 
         scannerIntentReceiver = createScannerIntentReceiver(events);
-        applicationContext?.registerReceiver(
-            scannerIntentReceiver, filter);
+        // Android 13+: приёмник интентов от другого приложения (сервис сканера) должен быть
+        // явно экспортирован, иначе на targetSdk 34+ registerReceiver выбрасывает исключение.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            applicationContext?.registerReceiver(
+                scannerIntentReceiver, filter, Context.RECEIVER_EXPORTED);
+        } else {
+            applicationContext?.registerReceiver(
+                scannerIntentReceiver, filter);
+        }
        
         when (arguments) {
             "text" -> eventSinkText = events
@@ -109,9 +118,10 @@ class ReceiveScannerIntentPlugin() :
             val status1: String = intent.getStringExtra("com.symbol.datawedge.data_string") ?: ""
             val status2: String = intent.getStringExtra("data") ?: ""
             val status3: String = intent.getStringExtra("scandata") ?: ""
+            val status4: String = intent.getStringExtra("barcode_string") ?: ""
 
 
-           val status = status1 + status2 + status3
+           val status = status1 + status2 + status3 + status4
 
             events.success(status)
           }
